@@ -8,6 +8,7 @@ import (
 
 	"github.com/antihax/optional"
 
+	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/free5gc/nas"
 	"github.com/free5gc/nas/nasMessage"
 	"github.com/free5gc/openapi"
@@ -15,7 +16,6 @@ import (
 	"github.com/free5gc/openapi/Nsmf_PDUSession"
 	"github.com/free5gc/openapi/Nudm_SubscriberDataManagement"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/pfcp/pfcpType"
 	smf_context "github.com/free5gc/smf/internal/context"
 	"github.com/free5gc/smf/internal/logger"
 	"github.com/free5gc/smf/internal/sbi/consumer"

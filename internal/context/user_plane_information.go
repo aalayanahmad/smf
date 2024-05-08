@@ -8,8 +8,8 @@ import (
 	"sort"
 	"sync"
 
+	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/pfcp/pfcpType"
 	"github.com/free5gc/smf/internal/logger"
 	"github.com/free5gc/smf/pkg/factory"
 )

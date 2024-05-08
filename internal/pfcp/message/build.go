@@ -4,8 +4,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/free5gc/pfcp"
-	"github.com/free5gc/pfcp/pfcpType"
+	"github.com/aalayanahmad/pfcp"
+	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/free5gc/smf/internal/context"
 	"github.com/free5gc/smf/internal/pfcp/udp"
 )
@@ -165,6 +165,98 @@ func barToCreateBAR(bar *context.BAR) *pfcp.CreateBAR {
 	// createBAR.SuggestedBufferingPacketsCount = new(pfcpType.SuggestedBufferingPacketsCount)
 
 	return createBAR
+}
+
+func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
+	createSRR := new(pfcp.CreateSRR)
+
+	createSRR.SRRID = new(pfcpType.SRRID)
+
+	createSRR.SRRID.SrrIdValue = srr.SRRID
+	qosInfos := []*pfcp.QoSMonitoringPerQoSFlowControlInformation{}
+
+	qosInfo1 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
+		QFI: &pfcpType.QFI{
+			QFI: 1,
+		},
+		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
+			DLPD:   false,
+			ULPD:   true,
+			RPPD:   false,
+			GTPUPM: false,
+			DLCI:   false,
+			ULCI:   false,
+			DLDR:   false,
+			ULDR:   false,
+		},
+		ReportingFrequency: &pfcpType.ReportingTriggers{
+			Liusa: false,
+			Droth: false,
+			Stopt: false,
+			Start: false,
+			Quhti: false,
+			Timth: false,
+			Volth: false,
+			Perio: false,
+			Evequ: false,
+			Eveth: true,
+			Macar: false,
+			Envcl: false,
+			Timqu: false,
+			Volqu: false,
+			Ipmjl: false,
+			Quvti: false,
+		},
+		PacketDelayThresholds: 270,
+		MinimumWaitTime:       1,
+		MeasurementPeriod: &pfcpType.MeasurementPeriod{
+			MeasurementPeriod: 1,
+		},
+	}
+	qosInfos = append(qosInfos, qosInfo1)
+	qosInfo2 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
+		QFI: &pfcpType.QFI{
+			QFI: 2,
+		},
+		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
+			DLPD:   false,
+			ULPD:   true,
+			RPPD:   false,
+			GTPUPM: false,
+			DLCI:   false,
+			ULCI:   false,
+			DLDR:   false,
+			ULDR:   false,
+		},
+		ReportingFrequency: &pfcpType.ReportingTriggers{
+			Liusa: false,
+			Droth: false,
+			Stopt: false,
+			Start: false,
+			Quhti: false,
+			Timth: false,
+			Volth: false,
+			Perio: false,
+			Evequ: false,
+			Eveth: true,
+			Macar: false,
+			Envcl: false,
+			Timqu: false,
+			Volqu: false,
+			Ipmjl: false,
+			Quvti: false,
+		},
+		PacketDelayThresholds: 250,
+		MinimumWaitTime:       2,
+		MeasurementPeriod: &pfcpType.MeasurementPeriod{
+			MeasurementPeriod: 2,
+		},
+	}
+	qosInfos = append(qosInfos, qosInfo2)
+
+	createSRR.QoSMonitoringPerQoSFlowControlInformation = qosInfos
+
+	return createSRR
 }
 
 func qerToCreateQER(qer *context.QER) *pfcp.CreateQER {
@@ -376,9 +468,10 @@ func BuildPfcpSessionEstablishmentRequest(
 	barList []*context.BAR,
 	qerList []*context.QER,
 	urrList []*context.URR,
+	srrList []*context.SRR,
+
 ) (pfcp.PFCPSessionEstablishmentRequest, error) {
 	msg := pfcp.PFCPSessionEstablishmentRequest{}
-
 	msg.NodeID = &context.GetSelf().CPNodeID
 
 	isv4 := context.GetSelf().ExternalIP().To4() != nil
@@ -395,7 +488,7 @@ func BuildPfcpSessionEstablishmentRequest(
 
 	msg.CreatePDR = make([]*pfcp.CreatePDR, 0)
 	msg.CreateFAR = make([]*pfcp.CreateFAR, 0)
-
+	msg.CreateSRR = make([]*pfcp.CreateSRR, 0)
 	for _, pdr := range pdrList {
 		if pdr.State == context.RULE_INITIAL {
 			msg.CreatePDR = append(msg.CreatePDR, pdrToCreatePDR(pdr))
@@ -415,6 +508,12 @@ func BuildPfcpSessionEstablishmentRequest(
 			msg.CreateBAR = append(msg.CreateBAR, barToCreateBAR(bar))
 		}
 		bar.State = context.RULE_CREATE
+	}
+	for _, srr := range srrList {
+		if srr.State == context.RULE_INITIAL {
+			msg.CreateSRR = append(msg.CreateSRR, srrToCreateSRR(srr))
+		}
+		srr.State = context.RULE_CREATE
 	}
 
 	// QER maybe redundant, so we needs properly needs

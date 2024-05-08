@@ -5,9 +5,9 @@ import (
 	"net"
 	"sync/atomic"
 
-	"github.com/free5gc/pfcp"
-	"github.com/free5gc/pfcp/pfcpType"
-	"github.com/free5gc/pfcp/pfcpUdp"
+	"github.com/aalayanahmad/pfcp"
+	"github.com/aalayanahmad/pfcp/pfcpType"
+	"github.com/aalayanahmad/pfcp/pfcpUdp"
 	"github.com/free5gc/smf/internal/context"
 	"github.com/free5gc/smf/internal/logger"
 	"github.com/free5gc/smf/internal/pfcp/udp"
@@ -138,6 +138,7 @@ func SendPfcpSessionEstablishmentRequest(
 	barList []*context.BAR,
 	qerList []*context.QER,
 	urrList []*context.URR,
+	srrList []*context.SRR,
 ) (resMsg *pfcpUdp.Message, err error) {
 	nodeIDtoIP := upf.NodeID.ResolveNodeIdToIp()
 	if upf.UPFStatus != context.AssociatedSetUpSuccess {
@@ -145,7 +146,7 @@ func SendPfcpSessionEstablishmentRequest(
 	}
 
 	pfcpMsg, err := BuildPfcpSessionEstablishmentRequest(upf.NodeID, nodeIDtoIP.String(),
-		ctx, pdrList, farList, barList, qerList, urrList)
+		ctx, pdrList, farList, barList, qerList, urrList, srrList)
 	if err != nil {
 		logger.PfcpLog.Errorf("Build PFCP Session Establishment Request failed: %v", err)
 		return nil, err

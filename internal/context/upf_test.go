@@ -7,8 +7,8 @@ import (
 
 	. "github.com/smartystreets/goconvey/convey"
 
+	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/free5gc/nas/nasMessage"
-	"github.com/free5gc/pfcp/pfcpType"
 	"github.com/free5gc/smf/pkg/factory"
 )
 

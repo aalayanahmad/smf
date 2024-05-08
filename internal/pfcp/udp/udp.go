@@ -6,8 +6,8 @@ import (
 	"runtime/debug"
 	"time"
 
-	"github.com/free5gc/pfcp"
-	"github.com/free5gc/pfcp/pfcpUdp"
+	"github.com/aalayanahmad/pfcp"
+	"github.com/aalayanahmad/pfcp/pfcpUdp"
 	"github.com/free5gc/smf/internal/context"
 	"github.com/free5gc/smf/internal/logger"
 )

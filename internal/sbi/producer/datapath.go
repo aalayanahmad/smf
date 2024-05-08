@@ -3,11 +3,11 @@ package producer
 import (
 	"fmt"
 
+	"github.com/aalayanahmad/pfcp"
+	"github.com/aalayanahmad/pfcp/pfcpType"
+	"github.com/aalayanahmad/pfcp/pfcpUdp"
 	"github.com/free5gc/nas/nasMessage"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/pfcp"
-	"github.com/free5gc/pfcp/pfcpType"
-	"github.com/free5gc/pfcp/pfcpUdp"
 	smf_context "github.com/free5gc/smf/internal/context"
 	"github.com/free5gc/smf/internal/logger"
 	pfcp_message "github.com/free5gc/smf/internal/pfcp/message"
@@ -20,6 +20,7 @@ type PFCPState struct {
 	barList []*smf_context.BAR
 	qerList []*smf_context.QER
 	urrList []*smf_context.URR
+	srrList []*smf_context.SRR
 }
 
 type SendPfcpResult struct {
@@ -125,7 +126,7 @@ func establishPfcpSession(smContext *smf_context.SMContext,
 	logger.PduSessLog.Infoln("Sending PFCP Session Establishment Request")
 
 	rcvMsg, err := pfcp_message.SendPfcpSessionEstablishmentRequest(
-		state.upf, smContext, state.pdrList, state.farList, state.barList, state.qerList, state.urrList)
+		state.upf, smContext, state.pdrList, state.farList, state.barList, state.qerList, state.urrList, state.srrList)
 	if err != nil {
 		logger.PduSessLog.Warnf("Sending PFCP Session Establishment Request error: %+v", err)
 		resCh <- SendPfcpResult{

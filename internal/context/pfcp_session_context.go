@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/free5gc/pfcp/pfcpType"
+	"github.com/aalayanahmad/pfcp/pfcpType"
 )
 
 type PFCPSessionResponseStatus int

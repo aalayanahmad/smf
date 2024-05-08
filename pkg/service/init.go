@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 	"fmt"
-	"io"
+	"io/ioutil"
 	"os"
 	"os/signal"
 	"runtime/debug"
@@ -49,7 +49,7 @@ func (a *SmfApp) SetLogEnable(enable bool) {
 	logger.MainLog.Infof("Log enable is set to [%v]", enable)
 	if enable && logger.Log.Out == os.Stderr {
 		return
-	} else if !enable && logger.Log.Out == io.Discard {
+	} else if !enable && logger.Log.Out == ioutil.Discard {
 		return
 	}
 
@@ -57,7 +57,7 @@ func (a *SmfApp) SetLogEnable(enable bool) {
 	if enable {
 		logger.Log.SetOutput(os.Stderr)
 	} else {
-		logger.Log.SetOutput(io.Discard)
+		logger.Log.SetOutput(ioutil.Discard)
 	}
 }
 

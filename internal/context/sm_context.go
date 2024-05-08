@@ -14,6 +14,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 
+	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/free5gc/nas/nasConvert"
 	"github.com/free5gc/nas/nasMessage"
 	"github.com/free5gc/ngap/ngapType"
@@ -23,7 +24,6 @@ import (
 	"github.com/free5gc/openapi/Nnrf_NFDiscovery"
 	"github.com/free5gc/openapi/Npcf_SMPolicyControl"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/pfcp/pfcpType"
 	"github.com/free5gc/smf/internal/logger"
 	"github.com/free5gc/smf/pkg/factory"
 	"github.com/free5gc/util/idgenerator"

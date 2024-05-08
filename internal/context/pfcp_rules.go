@@ -3,7 +3,7 @@ package context
 import (
 	"time"
 
-	"github.com/free5gc/pfcp/pfcpType"
+	"github.com/aalayanahmad/pfcp/pfcpType"
 )
 
 const (
@@ -24,10 +24,10 @@ type PDR struct {
 	PDI                PDI
 	OuterHeaderRemoval *pfcpType.OuterHeaderRemoval
 
-	FAR *FAR
-	URR []*URR
-	QER []*QER
-
+	FAR   *FAR
+	URR   []*URR
+	QER   []*QER
+	SRR   []*SRR
 	State RuleState
 }
 
@@ -144,8 +144,7 @@ type ForwardingParameters struct {
 
 // Buffering Action Rule 7.5.2.6-1
 type BAR struct {
-	BARID uint8
-
+	BARID                          uint8
 	DownlinkDataNotificationDelay  pfcpType.DownlinkDataNotificationDelay
 	SuggestedBufferingPacketsCount pfcpType.SuggestedBufferingPacketsCount
 
@@ -163,4 +162,21 @@ type QER struct {
 	GBR        *pfcpType.GBR
 
 	State RuleState
+}
+
+// Session Reporting Rule
+type SRR struct {
+	SRRID                                     uint8
+	QoSMonitoringPerQoSFlowControlInformation []*QoSMonitoringPerQoSFlowControlInformation
+	State                                     RuleState
+}
+
+// QoS Monitoring Per QoS Flow Control Information
+type QoSMonitoringPerQoSFlowControlInformation struct {
+	QFI                    uint8
+	RequestedQoSMonitoring *pfcpType.RequestedQosMonitoring
+	ReportingFrequency     *pfcpType.ReportingTriggers
+	PacketDelayThresholds  uint32
+	MinimumWaitTime        uint32
+	MeasurementPeriod      uint32
 }

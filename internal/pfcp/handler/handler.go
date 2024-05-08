@@ -3,10 +3,10 @@ package handler
 import (
 	"fmt"
 
+	"github.com/aalayanahmad/pfcp"
+	"github.com/aalayanahmad/pfcp/pfcpType"
+	"github.com/aalayanahmad/pfcp/pfcpUdp"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/pfcp"
-	"github.com/free5gc/pfcp/pfcpType"
-	"github.com/free5gc/pfcp/pfcpUdp"
 	smf_context "github.com/free5gc/smf/internal/context"
 	"github.com/free5gc/smf/internal/logger"
 	pfcp_message "github.com/free5gc/smf/internal/pfcp/message"
