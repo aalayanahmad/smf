@@ -425,6 +425,21 @@ func (upf *UPF) barID() (uint8, error) {
 	return barID, nil
 }
 
+func (upf *UPF) srrID() (uint8, error) {
+	if upf.UPFStatus != AssociatedSetUpSuccess {
+		err := fmt.Errorf("UPF[%s] not Associate with SMF", upf.NodeID.ResolveNodeIdToIp().String())
+		return 0, err
+	}
+
+	var srrID uint8
+	if tmpID, err := upf.srrIDGenerator.Allocate(); err != nil {
+		return 0, err
+	} else {
+		srrID = uint8(tmpID)
+	}
+
+	return srrID, nil
+}
 func (upf *UPF) qerID() (uint32, error) {
 	if upf.UPFStatus != AssociatedSetUpSuccess {
 		err := fmt.Errorf("UPF[%s] not Associate with SMF", upf.NodeID.ResolveNodeIdToIp().String())
@@ -490,6 +505,23 @@ func (upf *UPF) AddFAR() (*FAR, error) {
 	}
 
 	return far, nil
+}
+
+func (upf *UPF) AddSRR() (*SRR, error) {
+	if upf.UPFStatus != AssociatedSetUpSuccess {
+		err := fmt.Errorf("UPF[%s] not Associate with SMF", upf.NodeID.ResolveNodeIdToIp().String())
+		return nil, err
+	}
+
+	srr := new(SRR)
+	if SRRID, err := upf.srrID(); err != nil {
+		return nil, err
+	} else {
+		srr.SRRID = SRRID
+		upf.srrPool.Store(srr.SRRID, srr)
+	}
+
+	return srr, nil
 }
 
 func (upf *UPF) AddBAR() (*BAR, error) {

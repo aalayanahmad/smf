@@ -208,6 +208,7 @@ func (node *DataPathNode) DeactivateUpLinkTunnel(smContext *SMContext) {
 			if err != nil {
 				logger.CtxLog.Warnln("Deactivated UpLinkTunnel", err)
 			}
+		}
 	}
 }
 
