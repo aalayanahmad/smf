@@ -114,6 +114,18 @@ type UsageReport struct {
 	ReportTpye models.TriggerType
 }
 
+type SessionReport struct {
+	SrrId uint8
+	QoSMonitoringReport *QoSMonitoringReport
+}
+
+type QoSMonitoringReport struct{
+	QFI uint32
+	QoSMonitoringMeasurement uint32
+	timeStamp time.Time
+	startTime time.Time
+}
+
 var TeidGenerator *idgenerator.IDGenerator
 
 type SMContext struct {

@@ -203,10 +203,14 @@ func (node *DataPathNode) DeactivateUpLinkTunnel(smContext *SMContext) {
 				}
 			}
 		}
-		if srr := pdr.SRR; srr != nil {
-			err = node.UPF.RemoveSRR(srr)
-			if err != nil {
-				logger.CtxLog.Warnln("Deactivated UpLinkTunnel", err)
+		if srrList := pdr.SRR; srrList != nil {
+			for _, srr := range srrList {
+				if srr != nil {
+					err = node.UPF.RemoveSRR(srr)
+					if err != nil {
+						logger.CtxLog.Warnln("Deactivated UpLinkTunnel", err)
+					}
+				}
 			}
 		}
 	}
@@ -238,6 +242,16 @@ func (node *DataPathNode) DeactivateDownLinkTunnel(smContext *SMContext) {
 			for _, qer := range qerList {
 				if qer != nil {
 					err = node.UPF.RemoveQER(qer)
+					if err != nil {
+						logger.CtxLog.Warnln("Deactivated UpLinkTunnel", err)
+					}
+				}
+			}
+		}
+		if srrList := pdr.SRR; srrList != nil {
+			for _, srr := range srrList {
+				if srr != nil {
+					err = node.UPF.RemoveSRR(srr)
 					if err != nil {
 						logger.CtxLog.Warnln("Deactivated UpLinkTunnel", err)
 					}

@@ -14,6 +14,7 @@ func (smContext *SMContext) HandleReports(
 	nodeId pfcpType.NodeID, reportTpye models.TriggerType,
 ) {
 	var usageReport UsageReport
+	//var sessionReport SessionReport
 	upf := RetrieveUPFNodeByNodeID(nodeId)
 	upfId := upf.UUID()
 
