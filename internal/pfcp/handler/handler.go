@@ -6,11 +6,11 @@ import (
 	"github.com/aalayanahmad/pfcp"
 	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/aalayanahmad/pfcp/pfcpUdp"
+	smf_context "github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/logger"
+	pfcp_message "github.com/aalayanahmad/smf/internal/pfcp/message"
+	"github.com/aalayanahmad/smf/internal/sbi/producer"
 	"github.com/free5gc/openapi/models"
-	smf_context "github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/logger"
-	pfcp_message "github.com/free5gc/smf/internal/pfcp/message"
-	"github.com/free5gc/smf/internal/sbi/producer"
 )
 
 func HandlePfcpHeartbeatRequest(msg *pfcpUdp.Message) {

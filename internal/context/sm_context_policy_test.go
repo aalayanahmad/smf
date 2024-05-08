@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
+	"github.com/aalayanahmad/smf/pkg/factory"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/smf/pkg/factory"
 )
 
 var userPlaneConfig = factory.UserPlaneInformation{

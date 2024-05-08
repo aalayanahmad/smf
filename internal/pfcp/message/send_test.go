@@ -7,9 +7,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	smf_pfcp "github.com/free5gc/smf/internal/pfcp"
-	"github.com/free5gc/smf/internal/pfcp/message"
-	"github.com/free5gc/smf/internal/pfcp/udp"
+	smf_pfcp "github.com/aalayanahmad/smf/internal/pfcp"
+	"github.com/aalayanahmad/smf/internal/pfcp/message"
+	"github.com/aalayanahmad/smf/internal/pfcp/udp"
 )
 
 func TestSendPfcpAssociationSetupRequest(t *testing.T) {

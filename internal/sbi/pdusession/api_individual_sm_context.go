@@ -16,10 +16,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/internal/sbi/producer"
 	"github.com/free5gc/openapi"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/internal/sbi/producer"
 	"github.com/free5gc/util/httpwrapper"
 )
 

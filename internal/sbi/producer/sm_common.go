@@ -1,8 +1,8 @@
 package producer
 
 import (
-	smf_context "github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/sbi/consumer"
+	smf_context "github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/sbi/consumer"
 )
 
 func RemoveSMContextFromAllNF(smContext *smf_context.SMContext, sendNotification bool) {

@@ -15,11 +15,11 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	smf_context "github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/logger"
+	util_oauth "github.com/aalayanahmad/smf/internal/util/oauth"
+	"github.com/aalayanahmad/smf/pkg/factory"
 	"github.com/free5gc/openapi/models"
-	smf_context "github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/logger"
-	util_oauth "github.com/free5gc/smf/internal/util/oauth"
-	"github.com/free5gc/smf/pkg/factory"
 	logger_util "github.com/free5gc/util/logger"
 )
 

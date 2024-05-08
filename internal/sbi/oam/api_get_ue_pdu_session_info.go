@@ -3,7 +3,7 @@ package oam
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/free5gc/smf/internal/sbi/producer"
+	"github.com/aalayanahmad/smf/internal/sbi/producer"
 	"github.com/free5gc/util/httpwrapper"
 )
 

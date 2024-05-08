@@ -8,8 +8,8 @@ import (
 
 	"github.com/aalayanahmad/pfcp"
 	"github.com/aalayanahmad/pfcp/pfcpUdp"
-	"github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/logger"
+	"github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/logger"
 )
 
 const MaxPfcpUdpDataSize = 1024

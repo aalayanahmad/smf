@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/free5gc/smf/internal/context/pool"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/pkg/factory"
+	"github.com/aalayanahmad/smf/internal/context/pool"
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/pkg/factory"
 )
 
 // UeIPPool represent IPv4 address pool for UE

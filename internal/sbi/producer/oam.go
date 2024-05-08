@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/aalayanahmad/smf/internal/context"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/smf/internal/context"
 	"github.com/free5gc/util/httpwrapper"
 )
 

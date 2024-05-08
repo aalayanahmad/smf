@@ -3,8 +3,8 @@ package pfcp
 import (
 	"github.com/aalayanahmad/pfcp"
 	"github.com/aalayanahmad/pfcp/pfcpUdp"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/internal/pfcp/handler"
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/internal/pfcp/handler"
 )
 
 func Dispatch(msg *pfcpUdp.Message) {

@@ -6,9 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	smf_context "github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/pkg/association"
-	"github.com/free5gc/smf/pkg/factory"
+	smf_context "github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/pkg/association"
+	"github.com/aalayanahmad/smf/pkg/factory"
 	"github.com/free5gc/util/httpwrapper"
 )
 

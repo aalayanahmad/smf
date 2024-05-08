@@ -8,12 +8,12 @@ import (
 
 	"github.com/aalayanahmad/pfcp"
 	"github.com/aalayanahmad/pfcp/pfcpType"
+	smf_context "github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/internal/pfcp/message"
+	"github.com/aalayanahmad/smf/internal/sbi/producer"
 	"github.com/free5gc/nas/nasMessage"
 	"github.com/free5gc/openapi/models"
-	smf_context "github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/internal/pfcp/message"
-	"github.com/free5gc/smf/internal/sbi/producer"
 )
 
 func ToBeAssociatedWithUPF(ctx context.Context, upf *smf_context.UPF) {

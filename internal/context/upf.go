@@ -14,10 +14,10 @@ import (
 
 	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/aalayanahmad/pfcp/pfcpUdp"
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/pkg/factory"
 	"github.com/free5gc/nas/nasMessage"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/pkg/factory"
 	"github.com/free5gc/util/idgenerator"
 )
 

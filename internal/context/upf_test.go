@@ -8,8 +8,8 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 
 	"github.com/aalayanahmad/pfcp/pfcpType"
+	"github.com/aalayanahmad/smf/pkg/factory"
 	"github.com/free5gc/nas/nasMessage"
-	"github.com/free5gc/smf/pkg/factory"
 )
 
 var mockIPv4NodeID = &pfcpType.NodeID{

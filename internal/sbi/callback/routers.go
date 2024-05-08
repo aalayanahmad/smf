@@ -12,7 +12,7 @@ package callback
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/free5gc/smf/internal/logger"
+	"github.com/aalayanahmad/smf/internal/logger"
 	logger_util "github.com/free5gc/util/logger"
 )
 

@@ -8,17 +8,17 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
 
+	"github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/pfcp"
+	"github.com/aalayanahmad/smf/internal/pfcp/udp"
+	"github.com/aalayanahmad/smf/internal/sbi/producer"
+	"github.com/aalayanahmad/smf/pkg/factory"
 	"github.com/free5gc/nas"
 	"github.com/free5gc/nas/nasMessage"
 	"github.com/free5gc/nas/nasType"
 	"github.com/free5gc/openapi"
 	"github.com/free5gc/openapi/Nsmf_PDUSession"
 	"github.com/free5gc/openapi/models"
-	"github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/pfcp"
-	"github.com/free5gc/smf/internal/pfcp/udp"
-	"github.com/free5gc/smf/internal/sbi/producer"
-	"github.com/free5gc/smf/pkg/factory"
 	"github.com/free5gc/util/httpwrapper"
 )
 

@@ -12,13 +12,13 @@ import (
 	"github.com/google/uuid"
 
 	"github.com/aalayanahmad/pfcp/pfcpType"
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/pkg/factory"
 	"github.com/free5gc/openapi/Nnrf_NFDiscovery"
 	"github.com/free5gc/openapi/Nnrf_NFManagement"
 	"github.com/free5gc/openapi/Nudm_SubscriberDataManagement"
 	"github.com/free5gc/openapi/models"
 	"github.com/free5gc/openapi/oauth"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/pkg/factory"
 	"github.com/free5gc/util/idgenerator"
 )
 

@@ -8,9 +8,9 @@ import (
 	"github.com/aalayanahmad/pfcp"
 	"github.com/aalayanahmad/pfcp/pfcpType"
 	"github.com/aalayanahmad/pfcp/pfcpUdp"
-	"github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/internal/pfcp/udp"
+	"github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/internal/pfcp/udp"
 )
 
 var seq uint32

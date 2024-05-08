@@ -6,11 +6,11 @@ import (
 	"strings"
 	"time"
 
+	smf_context "github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/logger"
 	"github.com/free5gc/nas/nasConvert"
 	"github.com/free5gc/openapi"
 	"github.com/free5gc/openapi/models"
-	smf_context "github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/logger"
 )
 
 func buildConvergedChargingRequest(smContext *smf_context.SMContext,

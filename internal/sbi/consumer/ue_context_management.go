@@ -3,12 +3,12 @@ package consumer
 import (
 	"github.com/pkg/errors"
 
+	smf_context "github.com/aalayanahmad/smf/internal/context"
+	"github.com/aalayanahmad/smf/internal/logger"
+	"github.com/aalayanahmad/smf/internal/util"
 	"github.com/free5gc/openapi"
 	"github.com/free5gc/openapi/Nudm_UEContextManagement"
 	"github.com/free5gc/openapi/models"
-	smf_context "github.com/free5gc/smf/internal/context"
-	"github.com/free5gc/smf/internal/logger"
-	"github.com/free5gc/smf/internal/util"
 )
 
 func UeCmRegistration(smCtx *smf_context.SMContext) (
