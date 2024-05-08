@@ -203,6 +203,11 @@ func (node *DataPathNode) DeactivateUpLinkTunnel(smContext *SMContext) {
 				}
 			}
 		}
+		if srr := pdr.SRR; srr != nil {
+			err = node.UPF.RemoveSRR(srr)
+			if err != nil {
+				logger.CtxLog.Warnln("Deactivated UpLinkTunnel", err)
+			}
 	}
 }
 

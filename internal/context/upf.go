@@ -79,17 +79,18 @@ type UPF struct {
 	N3Interfaces []*UPFInterfaceInfo
 	N9Interfaces []*UPFInterfaceInfo
 
-	pdrPool sync.Map
-	farPool sync.Map
-	barPool sync.Map
-	qerPool sync.Map
-	urrPool sync.Map
-
+	pdrPool        sync.Map
+	farPool        sync.Map
+	barPool        sync.Map
+	qerPool        sync.Map
+	urrPool        sync.Map
+	srrPool        sync.Map
 	pdrIDGenerator *idgenerator.IDGenerator
 	farIDGenerator *idgenerator.IDGenerator
 	barIDGenerator *idgenerator.IDGenerator
 	urrIDGenerator *idgenerator.IDGenerator
 	qerIDGenerator *idgenerator.IDGenerator
+	srrIDGenerator *idgenerator.IDGenerator
 }
 
 // UPFSelectionParams ... parameters for upf selection
@@ -607,6 +608,18 @@ func (upf *UPF) RemoveQER(qer *QER) (err error) {
 
 	upf.qerIDGenerator.FreeID(int64(qer.QERID))
 	upf.qerPool.Delete(qer.QERID)
+	return nil
+}
+
+// *** add unit test ***//
+func (upf *UPF) RemoveSRR(srr *SRR) (err error) {
+	if upf.UPFStatus != AssociatedSetUpSuccess {
+		err := fmt.Errorf("UPF[%s] not Associate with SMF", upf.NodeID.ResolveNodeIdToIp().String())
+		return err
+	}
+
+	upf.srrIDGenerator.FreeID(int64(srr.SRRID))
+	upf.srrPool.Delete(srr.SRRID)
 	return nil
 }
 
