@@ -252,6 +252,7 @@ func NewUPF(nodeID *pfcpType.NodeID, ifaces []*factory.InterfaceUpfInfoItem) (up
 	upf.barIDGenerator = idgenerator.NewGenerator(1, math.MaxUint8)
 	upf.qerIDGenerator = idgenerator.NewGenerator(1, math.MaxUint32)
 	upf.urrIDGenerator = idgenerator.NewGenerator(1, math.MaxUint32)
+	upf.srrIDGenerator = idgenerator.NewGenerator(1, math.MaxUint8)
 
 	upf.N3Interfaces = make([]*UPFInterfaceInfo, 0)
 	upf.N9Interfaces = make([]*UPFInterfaceInfo, 0)
