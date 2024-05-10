@@ -147,7 +147,7 @@ func ReportUsageAndUpdateQuota(smContext *smf_context.SMContext) {
 }
 
 func buildMultiUnitUsageFromUsageReport(smContext *smf_context.SMContext) []models.MultipleUnitUsage {
-	logger.ChargingLog.Infof("build MultiUnitUsageFromUsageReport")
+	logger.ChargingLog.Infof("build MultiUnitUsageFromUsageReport ahmad!")
 
 	var ratingGroupUnitUsagesMap map[int32]models.MultipleUnitUsage
 	var multipleUnitUsage []models.MultipleUnitUsage
