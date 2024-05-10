@@ -2,8 +2,6 @@ module github.com/aalayanahmad/smf
 
 go 1.21
 
-toolchain go1.21.6
-
 require (
 	github.com/aalayanahmad/pfcp v1.0.1
 	github.com/antihax/optional v1.0.0
