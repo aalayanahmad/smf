@@ -142,7 +142,7 @@ func ReportUsageAndUpdateQuota(smContext *smf_context.SMContext) {
 			}
 		}
 	} else {
-		logger.ChargingLog.Infof("No report need to be charged")
+		logger.ChargingLog.Infof("AHMAD: No report need to be charged")
 	}
 }
 
