@@ -47,6 +47,7 @@ func ActivateUPFSession(
 			farList := make([]*smf_context.FAR, 0, 2)
 			qerList := make([]*smf_context.QER, 0, 2)
 			urrList := make([]*smf_context.URR, 0, 2)
+			srrList := make([]*smf_context.SRR, 0, 2)
 
 			if node.UpLinkTunnel != nil && node.UpLinkTunnel.PDR != nil {
 				pdrList = append(pdrList, node.UpLinkTunnel.PDR)
@@ -56,6 +57,9 @@ func ActivateUPFSession(
 				}
 				if node.UpLinkTunnel.PDR.URR != nil {
 					urrList = append(urrList, node.UpLinkTunnel.PDR.URR...)
+				}
+				if node.UpLinkTunnel.PDR.SRR != nil {
+					srrList = append(srrList, node.UpLinkTunnel.PDR.SRR...)
 				}
 			}
 			if node.DownLinkTunnel != nil && node.DownLinkTunnel.PDR != nil {
@@ -72,12 +76,14 @@ func ActivateUPFSession(
 					farList: farList,
 					qerList: qerList,
 					urrList: urrList,
+					srrList: srrList,
 				}
 			} else {
 				pfcpState.pdrList = append(pfcpState.pdrList, pdrList...)
 				pfcpState.farList = append(pfcpState.farList, farList...)
 				pfcpState.qerList = append(pfcpState.qerList, qerList...)
 				pfcpState.urrList = append(pfcpState.urrList, urrList...)
+				pfcpState.srrList = append(pfcpState.srrList, srrList...)
 			}
 		}
 	}
