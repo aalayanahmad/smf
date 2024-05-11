@@ -129,12 +129,12 @@ func establishPfcpSession(smContext *smf_context.SMContext,
 	state *PFCPState,
 	resCh chan<- SendPfcpResult,
 ) {
-	logger.PduSessLog.Infoln("Sending PFCP Session Establishment Request")
+	logger.PduSessLog.Infoln("Sending PFCP Session Establishment Request - - ahmad modified")
 
 	rcvMsg, err := pfcp_message.SendPfcpSessionEstablishmentRequest(
 		state.upf, smContext, state.pdrList, state.farList, state.barList, state.qerList, state.urrList, state.srrList)
 	if err != nil {
-		logger.PduSessLog.Warnf("Sending PFCP Session Establishment Request error: %+v", err)
+		logger.PduSessLog.Warnf("Sending PFCP Session Establishment Request error - - ahmad modified: %+v", err)
 		resCh <- SendPfcpResult{
 			Status: smf_context.SessionEstablishFailed,
 			Err:    err,
@@ -150,13 +150,13 @@ func establishPfcpSession(smContext *smf_context.SMContext,
 	}
 
 	if rsp.Cause != nil && rsp.Cause.CauseValue == pfcpType.CauseRequestAccepted {
-		logger.PduSessLog.Infoln("Received PFCP Session Establishment Accepted Response")
+		logger.PduSessLog.Infoln("Received PFCP Session Establishment Accepted Response - - ahmad modified")
 		resCh <- SendPfcpResult{
 			Status: smf_context.SessionEstablishSuccess,
 			RcvMsg: rcvMsg,
 		}
 	} else {
-		logger.PduSessLog.Infoln("Received PFCP Session Establishment Not Accepted Response")
+		logger.PduSessLog.Infoln("Received PFCP Session Establishment Not Accepted Response - - ahmad modified")
 		resCh <- SendPfcpResult{
 			Status: smf_context.SessionEstablishFailed,
 			Err:    fmt.Errorf("cause[%d] if not request accepted", rsp.Cause.CauseValue),
