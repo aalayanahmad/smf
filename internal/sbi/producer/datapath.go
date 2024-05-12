@@ -2,6 +2,7 @@ package producer
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/aalayanahmad/pfcp"
 	"github.com/aalayanahmad/pfcp/pfcpType"
@@ -62,23 +63,38 @@ func ActivateUPFSession(
 					srrList = append(srrList, node.UpLinkTunnel.PDR.SRR...)
 				}
 				// Define the new SRR struct with predefined values
+				var BASE_DATE_NTP_ERA0 = time.Date(1900, time.January, 1, 0, 0, 0, 0, time.UTC)
+				duration := 2 * time.Second
 				newSRR := &smf_context.SRR{
-					SRRID: 1, // Example value for SRRID
+					SRRID: 1,
 					QoSMonitoringPerQoSFlowControlInformation: []*smf_context.QoSMonitoringPerQoSFlowControlInformation{
 						{
-							QFI:                    1, // Example value for QFI
+							QFI: 1,
 							RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
-								// Define the RequestedQoSMonitoring fields if needed
+								DLPD:   false,
+								ULPD:   true,
+								RPPD:   false,
+								GTPUPM: false,
+								DLCI:   false,
+								ULCI:   false,
+								DLDR:   false,
+								ULDR:   false,
 							},
-							ReportingFrequency: &pfcpType.ReportingTriggers{
-								// Define the ReportingFrequency fields if needed
+							PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
+								DL:                        false,
+								UL:                        true,
+								RP:                        false,
+								UpPacketDelayThresholdRID: 250,
 							},
-							PacketDelayThresholds: 100, // Example value for PacketDelayThresholds
-							MinimumWaitTime:       200, // Example value for MinimumWaitTime
-							MeasurementPeriod:     300, // Example value for MeasurementPeriod
+							MinimumWaitTime: &pfcpType.MinimumWaitTime{
+								MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration),
+							},
+							MeasurementPeriod: &pfcpType.MeasurementPeriod{
+								MeasurementPeriod: 2,
+							},
 						},
 					},
-					State: smf_context.RULE_INITIAL, // Example value for State
+					State: smf_context.RULE_INITIAL,
 				}
 
 				// Append the new SRR struct to srrList

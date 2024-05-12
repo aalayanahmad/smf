@@ -176,7 +176,7 @@ type QoSMonitoringPerQoSFlowControlInformation struct {
 	QFI                    uint8
 	RequestedQoSMonitoring *pfcpType.RequestedQosMonitoring
 	ReportingFrequency     *pfcpType.ReportingTriggers
-	PacketDelayThresholds  uint32
-	MinimumWaitTime        uint32
-	MeasurementPeriod      uint32
+	PacketDelayThresholds  *pfcpType.PacketDelayThresholds
+	MinimumWaitTime        *pfcpType.MinimumWaitTime
+	MeasurementPeriod      *pfcpType.MeasurementPeriod
 }

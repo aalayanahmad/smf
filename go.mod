@@ -3,7 +3,7 @@ module github.com/aalayanahmad/smf
 go 1.21
 
 require (
-	github.com/aalayanahmad/pfcp v1.0.2
+	github.com/aalayanahmad/pfcp v1.0.3
 	github.com/antihax/optional v1.0.0
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
 	github.com/davecgh/go-spew v1.1.1
