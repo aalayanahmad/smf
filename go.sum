@@ -37,6 +37,8 @@ github.com/aalayanahmad/pfcp v1.0.0 h1:g6/c1QH6+5JuMOn/RbAnf78bPnAZE2adChFcStjGu
 github.com/aalayanahmad/pfcp v1.0.0/go.mod h1:GeePQOqq2O3UDDGNuPXbEFeqsoB8mtL9w7YsM5XJ0x4=
 github.com/aalayanahmad/pfcp v1.0.1 h1:F9Gf94fEDXTTYcqblw4auDdAojlIYgXkPUlhNa6eXi8=
 github.com/aalayanahmad/pfcp v1.0.1/go.mod h1:GeePQOqq2O3UDDGNuPXbEFeqsoB8mtL9w7YsM5XJ0x4=
+github.com/aalayanahmad/pfcp v1.0.2 h1:04jd0rSR0dbRRfnrPAYeAE1lh25NkwzcA1KwACnhca8=
+github.com/aalayanahmad/pfcp v1.0.2/go.mod h1:GeePQOqq2O3UDDGNuPXbEFeqsoB8mtL9w7YsM5XJ0x4=
 github.com/aead/cmac v0.0.0-20160719120800-7af84192f0b1/go.mod h1:nuudZmJhzWtx2212z+pkuy7B6nkBqa+xwNXZHL1j8cg=
 github.com/antihax/optional v1.0.0 h1:xK2lYat7ZLaVVcIuj82J8kIro4V6kDe0AUDFboUCwcg=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
