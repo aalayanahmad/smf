@@ -61,6 +61,29 @@ func ActivateUPFSession(
 				if node.UpLinkTunnel.PDR.SRR != nil {
 					srrList = append(srrList, node.UpLinkTunnel.PDR.SRR...)
 				}
+				// Define the new SRR struct with predefined values
+				newSRR := &smf_context.SRR{
+					SRRID: 1, // Example value for SRRID
+					QoSMonitoringPerQoSFlowControlInformation: []*smf_context.QoSMonitoringPerQoSFlowControlInformation{
+						{
+							QFI:                    1, // Example value for QFI
+							RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
+								// Define the RequestedQoSMonitoring fields if needed
+							},
+							ReportingFrequency: &pfcpType.ReportingTriggers{
+								// Define the ReportingFrequency fields if needed
+							},
+							PacketDelayThresholds: 100, // Example value for PacketDelayThresholds
+							MinimumWaitTime:       200, // Example value for MinimumWaitTime
+							MeasurementPeriod:     300, // Example value for MeasurementPeriod
+						},
+					},
+					State: smf_context.RULE_INITIAL, // Example value for State
+				}
+
+				// Append the new SRR struct to srrList
+				srrList = append(srrList, newSRR)
+
 			}
 			if node.DownLinkTunnel != nil && node.DownLinkTunnel.PDR != nil {
 				pdrList = append(pdrList, node.DownLinkTunnel.PDR)

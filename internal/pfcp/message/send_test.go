@@ -18,9 +18,7 @@ func TestSendPfcpAssociationSetupRequest(t *testing.T) {
 func TestSendPfcpSessionEstablishmentResponse(t *testing.T) {
 }
 
-func TestSendPfcpSessionEstablishmentRequest(t *testing.T) {
-}
-
+func TestSendPfcpSessionEstablishmentRequest(t *testing.T)
 func TestSendHeartbeatResponse(t *testing.T) {
 	udp.Run(smf_pfcp.Dispatch)
 

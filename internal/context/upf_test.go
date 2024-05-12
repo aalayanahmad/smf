@@ -306,3 +306,47 @@ func TestAddBAR(t *testing.T) {
 		}
 	})
 }
+
+func TestAddSRR(t *testing.T) {
+	testCases := []struct {
+		upf           *UPF
+		resultStr     string
+		expectedError error
+	}{
+		{
+			upf:           NewUPF(mockIPv4NodeID, mockIfaces),
+			resultStr:     "AddSRR should success",
+			expectedError: nil,
+		},
+		{
+			upf:           NewUPF(mockIPv4NodeID, mockIfaces),
+			resultStr:     "AddSRR should fail",
+			expectedError: fmt.Errorf("UPF[127.0.0.1] not Associate with SMF"),
+		},
+	}
+
+	testCases[0].upf.UPFStatus = AssociatedSetUpSuccess
+
+	Convey("AddSRR should indeed add SRR and report error appropiately", t, func() {
+		for i, testcase := range testCases {
+			upf := testcase.upf
+			infoStr := fmt.Sprintf("testcase[%d]: ", i)
+
+			Convey(infoStr, func() {
+				hi, err := upf.AddSRR()
+
+				Convey(testcase.resultStr, func() {
+					if testcase.expectedError == nil {
+						So(err, ShouldBeNil)
+						fmt.Printf("SRR ID for testcase[%d]: %+v\n", i, hi)
+					} else {
+						So(err, ShouldNotBeNil)
+						if err != nil {
+							So(err.Error(), ShouldEqual, testcase.expectedError.Error())
+						}
+					}
+				})
+			})
+		}
+	})
+}

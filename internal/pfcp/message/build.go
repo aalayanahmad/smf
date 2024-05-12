@@ -216,7 +216,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 	qosInfos = append(qosInfos, qosInfo1)
 	qosInfo2 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
 		QFI: &pfcpType.QFI{
-			QFI: 2,
+			QFI: 1,
 		},
 		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
 			DLPD:   false,
