@@ -175,7 +175,7 @@ type SRR struct {
 type QoSMonitoringPerQoSFlowControlInformation struct {
 	QFI                    uint8
 	RequestedQoSMonitoring *pfcpType.RequestedQosMonitoring
-	ReportingFrequency     *pfcpType.ReportingTriggers
+	ReportingFrequency     *pfcpType.ReportingFrequency
 	PacketDelayThresholds  *pfcpType.PacketDelayThresholds
 	MinimumWaitTime        *pfcpType.MinimumWaitTime
 	MeasurementPeriod      *pfcpType.MeasurementPeriod
