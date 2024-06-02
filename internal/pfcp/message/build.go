@@ -193,13 +193,13 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 		ReportingFrequency: &pfcpType.ReportingFrequency{
 			RESERVED: false,
 			PERIO:    false,
-			EVET:     false,
+			EVET:     true,
 		},
 		PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
 			DL:                        false,
 			UL:                        true,
 			RP:                        false,
-			UpPacketDelayThresholdRID: 270,
+			UpPacketDelayThresholdRID: 200,
 		},
 		MinimumWaitTime: &pfcpType.MinimumWaitTime{
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration),
@@ -211,7 +211,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 	qosInfos = append(qosInfos, qosInfo1)
 	qosInfo2 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
 		QFI: &pfcpType.QFI{
-			QFI: 1,
+			QFI: 2,
 		},
 		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
 			DLPD:   false,
@@ -226,13 +226,13 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 		ReportingFrequency: &pfcpType.ReportingFrequency{
 			RESERVED: false,
 			PERIO:    false,
-			EVET:     false,
+			EVET:     true,
 		},
 		PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
 			DL:                        false,
 			UL:                        true,
 			RP:                        false,
-			UpPacketDelayThresholdRID: 250,
+			UpPacketDelayThresholdRID: 100,
 		},
 		MinimumWaitTime: &pfcpType.MinimumWaitTime{
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration),
