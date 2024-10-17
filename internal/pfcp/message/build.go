@@ -175,8 +175,8 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 	createSRR.SRRID.SrrIdValue = srr.SRRID
 	qosInfos := []*pfcp.QoSMonitoringPerQoSFlowControlInformation{}
 	var BASE_DATE_NTP_ERA0 = time.Date(1900, time.January, 1, 0, 0, 0, 0, time.UTC)
-	duration_1 := 2 * time.Second
-	duration_2 := 1 * time.Second
+	duration_1 := 1 * time.Second
+	duration_2 := 2 * time.Second
 	qosInfo1 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
 		QFI: &pfcpType.QFI{
 			QFI: 1,
