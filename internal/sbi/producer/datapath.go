@@ -2,6 +2,7 @@ package producer
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/aalayanahmad/pfcp"
 	"github.com/aalayanahmad/pfcp/pfcpType"
@@ -61,43 +62,43 @@ func ActivateUPFSession(
 				if node.UpLinkTunnel.PDR.SRR != nil {
 					srrList = append(srrList, node.UpLinkTunnel.PDR.SRR...)
 				}
-				// // Define the new SRR struct with predefined values
-				// var BASE_DATE_NTP_ERA0 = time.Date(1900, time.January, 1, 0, 0, 0, 0, time.UTC)
-				// duration := 2 * time.Second
-				// newSRR := &smf_context.SRR{
-				// 	SRRID: 1,
-				// 	QoSMonitoringPerQoSFlowControlInformation: []*smf_context.QoSMonitoringPerQoSFlowControlInformation{
-				// 		{
-				// 			QFI: 1,
-				// 			RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
-				// 				DLPD:   false,
-				// 				ULPD:   true,
-				// 				RPPD:   false,
-				// 				GTPUPM: false,
-				// 				DLCI:   false,
-				// 				ULCI:   false,
-				// 				DLDR:   false,
-				// 				ULDR:   false,
-				// 			},
-				// 			PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
-				// 				DL:                        false,
-				// 				UL:                        true,
-				// 				RP:                        false,
-				// 				UpPacketDelayThresholdRID: 100,
-				// 			},
-				// 			MinimumWaitTime: &pfcpType.MinimumWaitTime{
-				// 				MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration),
-				// 			},
-				// 			MeasurementPeriod: &pfcpType.MeasurementPeriod{
-				// 				MeasurementPeriod: 1,
-				// 			},
-				// 		},
-				// 	},
-				// 	State: smf_context.RULE_INITIAL,
-				// }
+				// Define the new SRR struct with predefined values
+				var BASE_DATE_NTP_ERA0 = time.Date(1900, time.January, 1, 0, 0, 0, 0, time.UTC)
+				duration := 2 * time.Second
+				newSRR := &smf_context.SRR{
+					SRRID: 1,
+					QoSMonitoringPerQoSFlowControlInformation: []*smf_context.QoSMonitoringPerQoSFlowControlInformation{
+						{
+							QFI: 1,
+							RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
+								DLPD:   false,
+								ULPD:   true,
+								RPPD:   false,
+								GTPUPM: false,
+								DLCI:   false,
+								ULCI:   false,
+								DLDR:   false,
+								ULDR:   false,
+							},
+							PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
+								DL:                        false,
+								UL:                        true,
+								RP:                        false,
+								UpPacketDelayThresholdRID: 100,
+							},
+							MinimumWaitTime: &pfcpType.MinimumWaitTime{
+								MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration),
+							},
+							MeasurementPeriod: &pfcpType.MeasurementPeriod{
+								MeasurementPeriod: 1,
+							},
+						},
+					},
+					State: smf_context.RULE_INITIAL,
+				}
 
-				// // Append the new SRR struct to srrList
-				// srrList = append(srrList, newSRR)
+				// Append the new SRR struct to srrList
+				srrList = append(srrList, newSRR)
 
 			}
 			if node.DownLinkTunnel != nil && node.DownLinkTunnel.PDR != nil {
