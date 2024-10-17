@@ -200,13 +200,13 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			DL:                        false,
 			UL:                        true,
 			RP:                        false,
-			UpPacketDelayThresholdRID: 400,
+			UpPacketDelayThresholdRID: 100,
 		},
 		MinimumWaitTime: &pfcpType.MinimumWaitTime{
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_1),
 		},
 		MeasurementPeriod: &pfcpType.MeasurementPeriod{
-			MeasurementPeriod: 2,
+			MeasurementPeriod: 1,
 		},
 	}
 	qosInfos = append(qosInfos, qosInfo1)
@@ -233,13 +233,13 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			DL:                        false,
 			UL:                        true,
 			RP:                        false,
-			UpPacketDelayThresholdRID: 200,
+			UpPacketDelayThresholdRID: 150,
 		},
 		MinimumWaitTime: &pfcpType.MinimumWaitTime{
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_2),
 		},
 		MeasurementPeriod: &pfcpType.MeasurementPeriod{
-			MeasurementPeriod: 1,
+			MeasurementPeriod: 2,
 		},
 	}
 	qosInfos = append(qosInfos, qosInfo2)
