@@ -81,10 +81,12 @@ func ActivateUPFSession(
 								ULDR:   false,
 							},
 							PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
-								DL:                        false,
-								UL:                        true,
-								RP:                        false,
-								UpPacketDelayThresholdRID: 100,
+								DL:                               false,
+								UL:                               true,
+								RP:                               false,
+								DownlinkPacketDelayThresholdRID:  85,
+								UpPacketDelayThresholdRID:        85,
+								RoundTripPacketDelayThresholdRID: 85,
 							},
 							MinimumWaitTime: &pfcpType.MinimumWaitTime{
 								MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration),
