@@ -69,7 +69,7 @@ func ActivateUPFSession(
 					SRRID: 1,
 					QoSMonitoringPerQoSFlowControlInformation: []*smf_context.QoSMonitoringPerQoSFlowControlInformation{
 						{
-							QFI: 1,
+							QFI: 6,
 							RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
 								DLPD:   false,
 								ULPD:   true,

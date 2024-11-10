@@ -179,7 +179,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 	duration_1000ms := 1000 * time.Millisecond // 1000 ms duration
 	qosInfo1 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
 		QFI: &pfcpType.QFI{
-			QFI: 1,
+			QFI: 6,
 		},
 		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
 			DLPD:   false,
@@ -214,7 +214,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 	qosInfos = append(qosInfos, qosInfo1)
 	qosInfo2 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
 		QFI: &pfcpType.QFI{
-			QFI: 2,
+			QFI: 7,
 		},
 		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
 			DLPD:   false,
