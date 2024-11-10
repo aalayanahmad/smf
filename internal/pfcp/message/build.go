@@ -175,8 +175,8 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 	createSRR.SRRID.SrrIdValue = srr.SRRID
 	qosInfos := []*pfcp.QoSMonitoringPerQoSFlowControlInformation{}
 	var BASE_DATE_NTP_ERA0 = time.Date(1900, time.January, 1, 0, 0, 0, 0, time.UTC)
-	duration_200ms := 200 * time.Millisecond   // 500 ms duration
-	duration_1000ms := 1000 * time.Millisecond // 1000 ms duration
+	duration_200ms := 1000 * time.Millisecond  // 500 ms duration
+	duration_1000ms := 2000 * time.Millisecond // 1000 ms duration
 	qosInfo1 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
 		QFI: &pfcpType.QFI{
 			QFI: 6,
@@ -197,9 +197,9 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			EVET:     true,
 		},
 		PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
-			DL:                               false,
+			DL:                               true,
 			UL:                               true,
-			RP:                               false,
+			RP:                               true,
 			DownlinkPacketDelayThresholdRID:  80,
 			UpPacketDelayThresholdRID:        80,
 			RoundTripPacketDelayThresholdRID: 80,
@@ -208,7 +208,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_200ms),
 		},
 		MeasurementPeriod: &pfcpType.MeasurementPeriod{
-			MeasurementPeriod: 1,
+			MeasurementPeriod: 2,
 		},
 	}
 	qosInfos = append(qosInfos, qosInfo1)
@@ -243,7 +243,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_1000ms),
 		},
 		MeasurementPeriod: &pfcpType.MeasurementPeriod{
-			MeasurementPeriod: 2,
+			MeasurementPeriod: 4,
 		},
 	}
 	qosInfos = append(qosInfos, qosInfo2)
