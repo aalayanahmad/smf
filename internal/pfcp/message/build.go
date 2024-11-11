@@ -200,7 +200,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			DL:                        false,
 			UL:                        true,
 			RP:                        false,
-			UpPacketDelayThresholdRID: 300,
+			UpPacketDelayThresholdRID: 200,
 		},
 		MinimumWaitTime: &pfcpType.MinimumWaitTime{
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_200ms),
@@ -233,7 +233,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			DL:                        false,
 			UL:                        true,
 			RP:                        false,
-			UpPacketDelayThresholdRID: 300,
+			UpPacketDelayThresholdRID: 200,
 		},
 		MinimumWaitTime: &pfcpType.MinimumWaitTime{
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_1000ms),
