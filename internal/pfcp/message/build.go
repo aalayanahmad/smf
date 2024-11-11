@@ -206,7 +206,7 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_200ms),
 		},
 		MeasurementPeriod: &pfcpType.MeasurementPeriod{
-			MeasurementPeriod: 2,
+			MeasurementPeriod: 1,
 		},
 	}
 	qosInfos = append(qosInfos, qosInfo1)

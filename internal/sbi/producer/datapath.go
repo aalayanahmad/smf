@@ -64,7 +64,7 @@ func ActivateUPFSession(
 				}
 				// Define the new SRR struct with predefined values
 				var BASE_DATE_NTP_ERA0 = time.Date(1900, time.January, 1, 0, 0, 0, 0, time.UTC)
-				duration := 2 * time.Second
+				duration_200ms := 1000 * time.Millisecond // 500 ms duration
 				newSRR := &smf_context.SRR{
 					SRRID: 1,
 					QoSMonitoringPerQoSFlowControlInformation: []*smf_context.QoSMonitoringPerQoSFlowControlInformation{
@@ -80,16 +80,19 @@ func ActivateUPFSession(
 								DLDR:   false,
 								ULDR:   false,
 							},
+							ReportingFrequency: &pfcpType.ReportingFrequency{
+								RESERVED: false,
+								PERIO:    false,
+								EVET:     true,
+							},
 							PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
-								DL:                               false,
-								UL:                               true,
-								RP:                               false,
-								DownlinkPacketDelayThresholdRID:  85,
-								UpPacketDelayThresholdRID:        85,
-								RoundTripPacketDelayThresholdRID: 85,
+								DL:                        false,
+								UL:                        true,
+								RP:                        false,
+								UpPacketDelayThresholdRID: 300,
 							},
 							MinimumWaitTime: &pfcpType.MinimumWaitTime{
-								MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration),
+								MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_200ms),
 							},
 							MeasurementPeriod: &pfcpType.MeasurementPeriod{
 								MeasurementPeriod: 1,
