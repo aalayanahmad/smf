@@ -175,9 +175,42 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 	createSRR.SRRID.SrrIdValue = srr.SRRID
 	qosInfos := []*pfcp.QoSMonitoringPerQoSFlowControlInformation{}
 	var BASE_DATE_NTP_ERA0 = time.Date(1900, time.January, 1, 0, 0, 0, 0, time.UTC)
-	duration_500ms := 450 * time.Millisecond  // 500ms duration
-	duration_1000ms := 900 * time.Millisecond // 1000 ms duration
+	duration_500ms := 80 * time.Millisecond   // 500ms duration
+	duration_1000ms := 280 * time.Millisecond // 1000 ms duration
 	qosInfo1 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
+		QFI: &pfcpType.QFI{
+			QFI: 7,
+		},
+		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
+			DLPD:   false,
+			ULPD:   true,
+			RPPD:   false,
+			GTPUPM: false,
+			DLCI:   false,
+			ULCI:   false,
+			DLDR:   false,
+			ULDR:   false,
+		},
+		ReportingFrequency: &pfcpType.ReportingFrequency{
+			RESERVED: false,
+			PERIO:    false,
+			EVET:     true,
+		},
+		PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
+			DL:                        false,
+			UL:                        true,
+			RP:                        false,
+			UpPacketDelayThresholdRID: 80,
+		},
+		MinimumWaitTime: &pfcpType.MinimumWaitTime{
+			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_500ms),
+		},
+		MeasurementPeriod: &pfcpType.MeasurementPeriod{
+			MeasurementPeriod: 1,
+		},
+	}
+	qosInfos = append(qosInfos, qosInfo1)
+	qosInfo2 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
 		QFI: &pfcpType.QFI{
 			QFI: 6,
 		},
@@ -200,46 +233,13 @@ func srrToCreateSRR(srr *context.SRR) *pfcp.CreateSRR {
 			DL:                        false,
 			UL:                        true,
 			RP:                        false,
-			UpPacketDelayThresholdRID: 8,
-		},
-		MinimumWaitTime: &pfcpType.MinimumWaitTime{
-			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_500ms),
-		},
-		MeasurementPeriod: &pfcpType.MeasurementPeriod{
-			MeasurementPeriod: 1,
-		},
-	}
-	qosInfos = append(qosInfos, qosInfo1)
-	qosInfo2 := &pfcp.QoSMonitoringPerQoSFlowControlInformation{
-		QFI: &pfcpType.QFI{
-			QFI: 8,
-		},
-		RequestedQoSMonitoring: &pfcpType.RequestedQosMonitoring{
-			DLPD:   false,
-			ULPD:   true,
-			RPPD:   false,
-			GTPUPM: false,
-			DLCI:   false,
-			ULCI:   false,
-			DLDR:   false,
-			ULDR:   false,
-		},
-		ReportingFrequency: &pfcpType.ReportingFrequency{
-			RESERVED: false,
-			PERIO:    false,
-			EVET:     true,
-		},
-		PacketDelayThresholds: &pfcpType.PacketDelayThresholds{
-			DL:                        false,
-			UL:                        true,
-			RP:                        false,
-			UpPacketDelayThresholdRID: 30,
+			UpPacketDelayThresholdRID: 280,
 		},
 		MinimumWaitTime: &pfcpType.MinimumWaitTime{
 			MinimumWaitTime: BASE_DATE_NTP_ERA0.Add(duration_1000ms),
 		},
 		MeasurementPeriod: &pfcpType.MeasurementPeriod{
-			MeasurementPeriod: 4,
+			MeasurementPeriod: 2,
 		},
 	}
 	qosInfos = append(qosInfos, qosInfo2)
