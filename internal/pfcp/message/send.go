@@ -13,7 +13,7 @@ import (
 	"github.com/aalayanahmad/smf/internal/pfcp/udp"
 )
 
-var seq uint3F
+var seq uint32
 
 func getSeqNumber() uint32 {
 	return atomic.AddUint32(&seq, 1)
